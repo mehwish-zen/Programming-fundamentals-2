@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+void calculatepower(int base, int exponent)
+{
+    int result = 1;
+    for(int i = 1; i <= exponent; i++)
+    {
+        result *= base;
+    }
+    cout<< "result : "<<result;
+}
+
+int main()
+{
+    int base, exponent;
+    cout << "Enter the base" << endl;
+    cin>> base;
+    cout << "Enter the exponent" << endl;
+    cin >> exponent;
+    calculatepower(base,exponent);
+    return 0;
+}
