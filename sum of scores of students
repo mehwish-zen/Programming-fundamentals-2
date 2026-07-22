@@ -1,0 +1,27 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+double calculateSum(int scores[], int size) {
+    double totalSum = 0;
+    for (int i = 0; i < size; i++) {
+        totalSum += scores[i];
+    }
+    return totalSum;
+}
+
+int main() {
+    int numberOfStudents;
+    cin >> numberOfStudents;
+
+    int studentScores[numberOfStudents];
+    for (int i = 0; i < numberOfStudents; i++) {
+        cin >> studentScores[i];
+    }
+
+    double sumOfScores = calculateSum(studentScores, numberOfStudents);
+
+    cout << fixed << setprecision(2) << sumOfScores << endl;
+
+    return 0;
+}
