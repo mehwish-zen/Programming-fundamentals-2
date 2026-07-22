@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int calculate2High(int scores[], int size) {
+    int highest = scores[0];
+    int secondHighest = scores[0];
+    bool found = false;
+    for (int i = 0; i < size; i++) {
+        if (scores[i] > highest) {
+            secondHighest = highest;
+            highest = scores[i];
+            found = true;
+        } else if (scores[i] != highest && (!found || scores[i] > secondHighest)) {
+            secondHighest = scores[i];
+            found = true;
+        }
+    }
+    return secondHighest;
+}
+
+int calculate2Low(int scores[], int size) {
+    int lowest = scores[0];
+    int secondLowest = scores[0];
+    bool found = false;
+    for (int i = 0; i < size; i++) {
+        if (scores[i] < lowest) {
+            secondLowest = lowest;
+            lowest = scores[i];
+            found = true;
+        } else if (scores[i] != lowest && (!found || scores[i] < secondLowest)) {
+            secondLowest = scores[i];
+            found = true;
+        }
+    }
+    return secondLowest;
+}
+
+int main() {
+    int numberOfStudents;
+    cin >> numberOfStudents;
+
+    int studentScores[numberOfStudents];
+    for (int i = 0; i < numberOfStudents; i++) {
+        cin >> studentScores[i];
+    }
+
+    int secondLowestScore = calculate2Low(studentScores, numberOfStudents);
+    int secondHighestScore = calculate2High(studentScores, numberOfStudents);
+
+    cout << "2nd Lowest: " << secondLowestScore << endl;
+    cout << "2nd Highest: " << secondHighestScore << endl;
+
+    return 0;
+}
