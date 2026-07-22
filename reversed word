@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+void reverseWord(char word[], int size) {
+    int startIndex = 0;
+    int endIndex = size - 1;
+    while (startIndex < endIndex) {
+        char temp = word[startIndex];
+        word[startIndex] = word[endIndex];
+        word[endIndex] = temp;
+        startIndex++;
+        endIndex--;
+    }
+}
+
+int main() {
+    char word[100];
+    cin >> word;
+
+    int wordLength = 0;
+    while (word[wordLength] != '\0') {
+        wordLength++;
+    }
+
+    reverseWord(word, wordLength);
+
+    cout << "Reversed Word: " << word << endl;
+
+    return 0;
+}
